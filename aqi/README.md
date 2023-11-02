@@ -14,6 +14,17 @@ If you don't want to use poetry, I've also provided a requirements.txt file that
 
 - `pip install -r requirements.txt` 
 
+You will also need to install R dependencies do it using the python package to ease system path management:
+
+```bash
+from rpy2.robjects.packages import importr
+
+
+utils = importr('utils')
+utils.chooseCRANmirror(ind=12)
+utils.install_packages('lme4')
+```
+
 ***
 ### Publications 
 
