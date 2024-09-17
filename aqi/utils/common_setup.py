@@ -14,6 +14,7 @@ import matplotlib.ticker as mtick
 from sklearn.preprocessing import MinMaxScaler
 from scipy.stats import skew, kurtosis
 from pymer4.models import Lmer
+from pymer4.io import save_model, load_model
 from lifelines import KaplanMeierFitter, CoxPHFitter
 from sklearn.model_selection import train_test_split
 from sksurv.preprocessing import OneHotEncoder
