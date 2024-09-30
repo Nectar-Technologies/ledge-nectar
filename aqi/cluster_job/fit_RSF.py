@@ -8,6 +8,7 @@ from sklearn.model_selection import train_test_split, RandomizedSearchCV
 from sksurv.ensemble import RandomSurvivalForest
 from sksurv.preprocessing import OneHotEncoder
 import joblib
+from memory_profiler import memory_usage
 
 
 
@@ -24,7 +25,8 @@ data = pd.read_csv(os.path.join(os.getcwd(), 'clean_data.csv'))
 n_estimators = [100, 500, 1000]  # Reduced
 
 # Number of features to consider at every split
-max_features = ['auto', 'sqrt']
+#max_features = ['auto', 'sqrt']
+max_features = ['sqrt', 'log2']
 
 # Maximum number of levels in tree
 #max_depth = [int(x) for x in np.linspace(10, 60, num = 10)]
@@ -100,26 +102,30 @@ X_test = mx.transform(X_test)
 
 # Fit model ----------------------------------------------
 
-rf = RandomSurvivalForest()
+def fit_model():
+    rf = RandomSurvivalForest()
 
-rf_random = RandomizedSearchCV(
-    estimator = rf,
-    param_distributions = random_grid,
-    n_iter = 5,
-    cv = 3,
-    verbose = 1,
-    random_state = 8,
-    n_jobs = -1,
-)
+    rf_random = RandomizedSearchCV(
+        estimator=rf,
+        param_distributions=random_grid,
+        n_iter=5,
+        cv=3,
+        verbose=1,
+        random_state=8,
+        n_jobs=16,
+    )
 
-# Fit the random search model
-rf_random.fit(X_train, y_train)
+    # Fit the random search model
+    rf_random.fit(X_train, y_train)
+
+    # Save best model
+    output_dir = os.getcwd()  # Use current working directory
+    filename = os.path.join(output_dir, "best_RSF.pkl")
+    joblib.dump(rf_random.best_estimator_, filename)
 
 
 
-# Save best model ----------------------------------------
+# Monitor memory usage -----------------------------------
 
-output_dir = os.getcwd()  # Use current working directory
-filename = os.path.join(output_dir, "best_RSF.pkl")
-
-joblib.dump(rf_random.best_estimator_, filename)
+mem_usage = memory_usage(fit_model, interval=1)
+print(f"Maximum memory usage: {max(mem_usage)} MB")
