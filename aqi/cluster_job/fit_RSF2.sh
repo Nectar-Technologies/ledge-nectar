@@ -8,4 +8,4 @@
 #SBATCH --mail-type=ALL
 
 module load python/3.11.5
-python fit_RSF.py
+python fit_RSF2.py
