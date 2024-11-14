@@ -12,6 +12,7 @@ VENV/
 
 # Data
 *.csv
+*.xlsx
 *.jpeg
 *.jpg
 *.tfevents.*
