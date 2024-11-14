@@ -293,4 +293,9 @@ auth.json
 /aqi/outputs/*.joblib
 /aqi/cluster_job/*.pkl
 
+# ignore folders
+/aqi/data
+/aqi/notebooks/old_files
+/aqi/notebooks/data_generation
+
 # End of https://www.gitignore.io/api/macos,python,dotenv,pycharm,visualstudiocode
