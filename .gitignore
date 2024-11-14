@@ -287,4 +287,10 @@ t.gz_.gstmp
 # secret
 auth.json
 
+# Ignore model outputs
+/aqi/outputs/*.rds
+/aqi/outputs/*.pkl
+/aqi/outputs/*.joblib
+/aqi/cluster_job/*.pkl
+
 # End of https://www.gitignore.io/api/macos,python,dotenv,pycharm,visualstudiocode
