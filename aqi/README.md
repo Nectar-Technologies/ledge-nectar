@@ -11,10 +11,6 @@ We used `poetry` to manage dependencies. You can follow the steps [here](https:/
 - `poetry install`
 - `poetry run jupyter notebook`
 
-If you don't want to use `poetry`, we've also provided a `requirements.txt` file that you can use in your virtualenv.
-
-- `pip install -r requirements.txt` 
-
 You will also need to install `R` dependencies. You can perform it using the python package to ease system path management:
 
 ```bash
