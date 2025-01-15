@@ -31,14 +31,8 @@ from sksurv.metrics import (
 
 from tqdm.notebook import tqdm
 
-from aqi.data.utils import timestamp_to_date, try_check_month
-from aqi.vizualisation.utils import plot_survival_bar_per_state
-
 import warnings
 warnings.filterwarnings("ignore")
-
-NECTAR_PALETTE = "blend:#D8A348,#1D1D1D"
-sns.set_palette(NECTAR_PALETTE)
 
 ROOT_PATH = "../data"
 SEASONS_INCLUDED = [2021, 2022, 2023] # Don't include 2024 
@@ -51,13 +45,3 @@ START_SEASON_MONTH = 6
 START_SEASON_DAY = 1
 END_SEASON_MONTH = 11
 END_SEASON_DAY = 15
-
-# OPS USED 
-OPS = (
-    36, 51, 55, 69, 83, 87, 89, 153, 159, 160,
-    161, 167, 192, 193, 194, 195, 199, 205, 207,
-    208, 210, 212, 218, 219, 220, 221
-)
-# you may wanna add more operation 
-# I haven't updated this but we did have new comer end of year 2023
-# but doubt it's useful here since no data during season
