@@ -11,7 +11,6 @@ ENV/
 VENV/
 
 # Data
-*.csv
 *.xlsx
 *.jpeg
 *.jpg
@@ -292,6 +291,7 @@ auth.json
 # Ignore model outputs
 /aqi/outputs/*.rds
 /aqi/outputs/*.pkl
+/aqi/outputs/*.csv
 /aqi/outputs/*.joblib
 /aqi/cluster_job/*.pkl
 
