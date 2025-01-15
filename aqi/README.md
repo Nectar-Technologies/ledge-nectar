@@ -34,7 +34,7 @@ utils.install_packages('lme4')
 ***
 ### Data source and reproducibility
 
-Privacy and commercial restrictions do not allow us to share the data freely. Therefore, we added a sample dataset in the `example_data` folder. With it, you should be able to run the code that fits the random survival forest. Unfortunately, the code for the GLMM probably won't work as it requires multiple operation_id.
+Privacy and commercial restrictions do not allow us to share the data freely. Therefore, we added a sample dataset in the `example_data` folder. With it, you should be able to run the code that fits the Random Survival Forest. Unfortunately, the code for the GLMM probably won't work as it requires multiple operation_id.
 
 To run the Random Survival Forest, just change the notebook's data folder path and file name for `example_data` and `example_data.csv` at the beginning.
 
